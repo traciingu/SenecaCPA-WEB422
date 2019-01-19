@@ -13,6 +13,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+    res.send("HELLO!");
+});
+
 // "Employee" Routes
 
 app.get("/employees", (req,res) => {
