@@ -8,4 +8,49 @@
 *
 *  Link: https://web422-assignment1-tn.herokuapp.com/
 *  https://git.heroku.com/web422-assignment1-tn.git
-********************************************************************************/ 
+********************************************************************************/
+
+
+$("document").ready(function () {
+    console.log("jQuery working!");
+
+
+    $("#teams-menu").on("click", function (event) {
+        event.preventDefault();
+
+        $.get("https://web422-assignment1-tn.herokuapp.com/teams", function() {
+            console.log("AJAX!");
+        })
+            .done(function (data) {
+                $(".well").empty()
+                    .append("<h3>Teams</h3>")
+                    .append(JSON.stringify(data));
+                console.log("COMPLETED RETRIEVAL OF TEAMS DATA!");
+            });
+    });
+
+    $("#employees-menu").on("click", function (event) {
+        event.preventDefault();
+
+        $.get("https://web422-assignment1-tn.herokuapp.com/employees", function (data) {
+            console.log("AJAX DID SOMETHING!");
+        });
+    });
+
+    $("#projects-menu").on("click", function (event) {
+        event.preventDefault();
+
+        $.get("https://web422-assignment1-tn.herokuapp.com/projects", function (data) {
+            console.log("AJAX DID SOMETHING!");
+        });
+    });
+
+    $("#positions-menu").on("click", function (event) {
+        event.preventDefault();
+
+        $.get("https://web422-assignment1-tn.herokuapp.com/positions", function (data) {
+            console.log("AJAX DID SOMETHING!");
+        });
+    });
+
+});

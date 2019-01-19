@@ -13,9 +13,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-    res.send("HELLO!");
-});
+app.use(express.static('./css'));
+app.get("/", function(req,res){
+    res.sendFile(path.join(__dirname + "/index.html"));
+ });
 
 // "Employee" Routes
 
